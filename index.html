@@ -503,6 +503,68 @@ body.loading{overflow:hidden}
   .hero-logo-circle{width:clamp(40px,10vw,48px)}
 }
 
+
+/* Registration status and responsive refinements */
+.registration-status{cursor:default;white-space:nowrap}
+.registration-status:hover{transform:none;box-shadow:none;background:transparent;color:var(--text);border-color:var(--line)}
+.registration-closed-note{display:flex;flex-direction:column;gap:5px;max-width:560px;margin:18px 0 4px;padding:13px 16px;border:1px solid rgba(217,70,239,.42);border-radius:14px;background:linear-gradient(110deg,rgba(217,70,239,.12),rgba(0,217,255,.07))}
+.registration-closed-note strong{font-size:.78rem;letter-spacing:.12em;color:#ff9be8}
+.registration-closed-note span{font-size:.88rem;color:var(--muted);line-height:1.5}
+@media(max-width:700px){
+  .nav-actions .registration-status{display:none}
+  .hero{padding-top:92px;padding-bottom:46px}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+  .hero-visual{grid-row:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0 0 0;margin:0 0 22px;overflow:visible}
+  .visual-glow{width:85%;top:0}
+  .robot-ring{position:absolute;width:min(84vw,340px);top:0}
+  .robot{width:min(84vw,340px);max-width:340px;flex:none}
+  .brand-under-robot{position:relative;left:auto;bottom:auto;transform:none;width:min(100%,420px);margin:0 auto 0;font-size:.64rem;line-height:1.45;padding:0 8px}
+  .hero-logo-row{position:relative;left:auto;bottom:auto;transform:none;width:min(100%,350px);margin:12px auto 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+  .hero-logo-circle{width:clamp(40px,10.5vw,52px)}
+  .hero-copy{grid-row:2;width:100%;text-align:center}
+  .hero-copy .eyebrow,.hero-meta,.hero-buttons,.countdown{justify-content:center}
+  .hero-desc{margin-left:auto;margin-right:auto}
+  .hero-buttons .btn{min-height:44px}
+  .hero-bottom{justify-content:center;line-height:1.5}
+  .registration-closed-note{margin:16px auto 0;text-align:center}
+  .details-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .detail-card{min-width:0;padding:18px}
+  .detail-card h3{font-size:1rem}
+  .detail-card p{overflow-wrap:anywhere}
+  .register-panel{grid-template-columns:minmax(0,1fr);gap:22px;text-align:center}
+  .register-side{min-width:0}
+  .register-side .btn{max-width:100%;white-space:normal}
+}
+@media(max-width:430px){
+  .hero{padding-top:88px}
+  .hero-visual{margin-bottom:18px}
+  .robot,.robot-ring{width:min(80vw,300px)}
+  .brand-under-robot{font-size:.6rem}
+  .hero-logo-row{width:min(100%,320px);gap:5px;margin-top:10px}
+  .hero-logo-circle{width:clamp(38px,10vw,44px)}
+  .hero h1{font-size:clamp(3.2rem,15vw,4.7rem)}
+  .hero-sub{font-size:.78rem;letter-spacing:.09em;line-height:1.5}
+  .hero-desc{font-size:.92rem}
+  .hero-buttons{flex-direction:column;align-items:stretch}
+  .hero-buttons .btn{width:100%}
+  .countdown{gap:6px}
+  .timebox{min-width:0;flex:1;padding:8px 5px}
+  .timebox b{font-size:1.15rem}
+  .timebox span{font-size:.55rem}
+  .details-grid{grid-template-columns:1fr}
+  .schedule-intro{align-items:flex-start}
+  .schedule-bot-wrap{width:90px;min-width:90px;margin-right:-10px}
+  .footer-links{justify-content:center}
+}
+@media(max-width:360px){
+  .wrap{width:calc(100% - 26px)}
+  .hero-logo-row{width:100%;gap:4px}
+  .hero-logo-circle{width:36px}
+  .hero h1{font-size:3rem}
+  .schedule-intro{display:block}
+  .schedule-bot-wrap{margin:12px auto 0}
+}
+
 </style>
 </head>
 <body class="loading">
@@ -531,7 +593,7 @@ body.loading{overflow:hidden}
 <nav class="nav-links" id="navlinks" aria-label="Main navigation">
 <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#prizes">Prizes</a><a href="#event">Event</a><a href="#location">Location</a><a href="#schedule">Schedule</a><a href="#team">Team</a><a href="#faq">FAQ</a>
 </nav>
-<div class="nav-actions"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc2HW6TlneHG9ZB_adEzlVaTWAfrMowV9tnpJzb4AyBKQWWgw/viewform?usp=dialog" target="_blank" rel="noopener">Register now <span class="arrow">↗</span></a><button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button></div>
+<div class="nav-actions"><span class="btn secondary registration-status">Registrations closed</span><button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button></div>
 </div></header>
 
 <main>
@@ -545,7 +607,7 @@ body.loading{overflow:hidden}
 <p class="hero-sub">24-HOUR NATIONAL-LEVEL HACKATHON</p>
 <p class="hero-desc">One idea can build a bridge between classrooms and industry. Bring your team, take on complex challenges, and turn bold thinking into practical solutions in an intensive 24-hour hackathon.</p>
 <div class="hero-meta"><span class="meta-pill">25–26 November 2026</span><span class="meta-pill">JCE · Belagavi</span><span class="meta-pill">Teams of 2 or 4</span></div>
-<div class="hero-buttons"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc2HW6TlneHG9ZB_adEzlVaTWAfrMowV9tnpJzb4AyBKQWWgw/viewform?usp=dialog" target="_blank" rel="noopener">Register your team <span class="arrow">↗</span></a><a class="btn secondary" href="#about">Explore the event <span class="arrow">↓</span></a></div>
+<div class="hero-buttons"><span class="btn secondary registration-status">Registrations officially closed</span><a class="btn" href="#event">Explore the event <span class="arrow">↓</span></a></div>
 <div class="countdown" aria-label="Countdown to the hackathon">
 <div class="timebox"><b id="days">--</b><span>Days</span></div><div class="timebox"><b id="hours">--</b><span>Hours</span></div><div class="timebox"><b id="minutes">--</b><span>Minutes</span></div><div class="timebox"><b id="seconds">--</b><span>Seconds</span></div>
 </div>
@@ -623,8 +685,8 @@ body.loading{overflow:hidden}
 <div class="detail-card reveal delay-1"><div class="detail-icon">⌖</div><h3>Where</h3><p class="value">Jain College of Engineering</p><p>Belagavi, Karnataka</p></div>
 <div class="detail-card reveal delay-2"><div class="detail-icon">◎</div><h3>Format</h3><p class="value">Offline</p><p>On campus, in teams</p></div>
 <div class="detail-card reveal"><div class="detail-icon">♧</div><h3>Team size</h3><p class="value">2 or 4 members</p><p>Form your team and build together</p></div>
-<div class="detail-card reveal delay-1"><div class="detail-icon">₹</div><h3>Registration fee</h3><p class="value">Early bird · Until 16 Nov 2026</p><p>Team of 2: <strong>₹600</strong> &nbsp;|&nbsp; Team of 4: <strong>₹1,200</strong></p><p class="value" style="margin-top:12px">Regular · After 16 Nov 2026</p><p>Team of 2: <strong>₹800</strong> &nbsp;|&nbsp; Team of 4: <strong>₹1,600</strong></p><span class="fee-note">REGISTRATION CLOSES 24 NOVEMBER 2026</span></div>
-<div class="detail-card reveal delay-2"><div class="detail-icon">✓</div><h3>Registration closes</h3><p class="value">24 November 2026</p><p>Complete your team registration before the deadline</p></div>
+<div class="detail-card reveal delay-1"><div class="detail-icon">✓</div><h3>Registration status</h3><p class="value">Officially closed</p><p>The Early Bird Offer closed ahead of schedule following an overwhelming response.</p></div>
+<div class="detail-card reveal delay-2"><div class="detail-icon">✦</div><h3>Thank you</h3><p class="value">Overwhelming response</p><p>No regular-fee registration window will be opened. We look forward to welcoming registered teams.</p></div>
 </div>
 </div></section>
 
@@ -821,18 +883,18 @@ a relative path such as images/team-member-name.jpg.
 <div class="faq-list reveal">
 <details><summary>Who can participate?</summary><p>Students can participate in teams of 2 or 4 members.</p></details>
 <details><summary>When and where is Synapse 2.0 happening?</summary><p>The 24-hour hackathon will be held from 25 to 26 November 2026 at Jain College of Engineering, Belagavi.</p></details>
-<details><summary>What is the registration fee?</summary><p>Early bird offer (valid until 16 November 2026): ₹600 for a team of 2 and ₹1,200 for a team of 4. After the early bird offer: ₹800 for a team of 2 and ₹1,600 for a team of 4. Registration closes on 24 November 2026.</p></details>
+<details><summary>Are registrations still open?</summary><p>No. Registrations for Synapse 2.0 are officially closed. The Early Bird Offer closed ahead of schedule due to the overwhelming response, and no regular-fee registration window will be opened.</p></details>
 <details><summary>What is included in the registration fee?</summary><p>Breakfast, lunch, dinner, snacks, a welcome kit and a participation certificate are included for every participant.</p></details>
 <details><summary>What can participants win?</summary><p>Synapse 2.0 features a total prize pool of ₹50,000 and 10+ company internship opportunities.</p></details>
 <details><summary>Will the problem statements and domains be announced before the hackathon?</summary><p>No. The participating companies will announce the problem statements and challenge domains during the hackathon inauguration on 25 November 2026. Teams will select their problem statements on the day of the event.</p></details>
-<details><summary>How do I register?</summary><p>Use the Register your team button to open the official registration form. Complete the form before 24 November 2026.</p></details>
+<details><summary>Can I still register for Synapse 2.0?</summary><p>Registrations are officially closed. Thank you for the tremendous interest and support. We look forward to welcoming the registered teams at the event.</p></details>
 </div>
 </div></section>
 
 <section class="section" id="register"><div class="wrap">
 <div class="register-panel reveal">
-<div><p class="eyebrow">Your next 24 hours start here</p><h2>Have an idea?<br><span class="gradient">Make it real.</span></h2><p>Get your team together, take on the challenge and be part of Synapse 2.0 at Jain College of Engineering, Belagavi.</p></div>
-<div class="register-side"><div class="fee">₹600 – ₹1,200<small>Early bird · Team of 2 / Team of 4 · until 16 Nov</small></div><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc2HW6TlneHG9ZB_adEzlVaTWAfrMowV9tnpJzb4AyBKQWWgw/viewform?usp=dialog" target="_blank" rel="noopener">Register now <span class="arrow">↗</span></a></div>
+<div><p class="eyebrow">A heartfelt thank you</p><h2>You made<br><span class="gradient">Synapse 2.0 bigger.</span></h2><p>Registrations are officially closed. We are grateful for the overwhelming response received from students and institutions. The Early Bird Offer closed ahead of schedule, and no regular-fee registration window will be opened.</p></div>
+<div class="register-side"><div class="fee">SEE YOU THERE<small>25–26 November 2026 · Jain College of Engineering, Belagavi</small></div><a class="btn" href="#schedule">View event schedule <span class="arrow">↓</span></a></div>
 </div>
 </div></section>
 
@@ -872,7 +934,7 @@ a relative path such as images/team-member-name.jpg.
 
 <footer><div class="wrap">
 <div class="footer-top"><div class="footer-brand">SYNAPSE <span>2.0</span><div style="font: .68rem 'DM Mono',monospace;color:var(--muted);margin-top:6px">25–26 NOVEMBER 2026 · BELAGAVI</div></div>
-<div class="footer-links"><a href="#about">About</a><a href="#prizes">Prizes</a><a href="#event">Event details</a><a href="#location">Location</a><a href="#faq">FAQ</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSc2HW6TlneHG9ZB_adEzlVaTWAfrMowV9tnpJzb4AyBKQWWgw/viewform?usp=dialog" target="_blank" rel="noopener">Registration ↗</a></div></div>
+<div class="footer-links"><a href="#about">About</a><a href="#prizes">Prizes</a><a href="#event">Event details</a><a href="#location">Location</a><a href="#faq">FAQ</a><a href="#register">Registration closed</a></div></div>
 <div class="footer-org">Programmers Hub, JCE Innovation & Entrepreneurship Foundation (JIEF) · Department of CSE (AIML) Jain College of Engineering, Belagavi</div>
 <div class="footer-bottom"><span>© 2026 SYNAPSE 2.0</span><span>BUILD · COLLABORATE · INNOVATE</span></div>
 </div></footer>
